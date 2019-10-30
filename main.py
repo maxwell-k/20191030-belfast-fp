@@ -6,9 +6,10 @@ def main(_input):
     d day
     m minute
     """
-    if _input.endswith("m"):
-        minutes = float(_input.rstrip("m"))
-        return minutes * 60 * 1000
+    code = "m"
+    milliseconds = 60 * 1000
+    if _input.endswith(code):
+        return float(_input.rstrip(code)) * milliseconds
     else:
         return 0
 
