@@ -1,4 +1,4 @@
-DURATIONS = {"m": 60 * 1000, "h": 60 * 60 * 1000}
+DURATIONS = {"m": 60 * 1000, "h": 60 * 60 * 1000, "d": 24 * 60 * 60 * 1000}
 
 
 def main(_input):
@@ -13,14 +13,14 @@ def main(_input):
 
     h hour
     """
-    result = 0
-
-    for component in _input.split(" "):
-        for code in DURATIONS:
-            if component.endswith(code):
-                result += float(component.rstrip(code)) * DURATIONS[code]
-
-    return result
+    return sum(
+        sum(
+            float(component.rstrip(code)) * DURATIONS[code]
+            for code in DURATIONS
+            if component.endswith(code)
+        )
+        for component in _input.split(" ")
+    )
 
 
 def test_main():
@@ -29,3 +29,4 @@ def test_main():
     assert main("1.5m") == 90 * 1000
     assert main("1h") == 60 * 60 * 1000
     assert main("1h 1m") == 61 * 60 * 1000
+    assert main("1d") == 24 * 60 * 60 * 1000
