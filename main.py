@@ -15,9 +15,10 @@ def main(_input):
     """
     result = 0
 
-    for code in DURATIONS:
-        if _input.endswith(code):
-            result += float(_input.rstrip(code)) * DURATIONS[code]
+    for component in _input.split(" "):
+        for code in DURATIONS:
+            if component.endswith(code):
+                result += float(component.rstrip(code)) * DURATIONS[code]
 
     return result
 
@@ -27,3 +28,4 @@ def test_main():
     assert main("1m") == 60 * 1000
     assert main("1.5m") == 90 * 1000
     assert main("1h") == 60 * 60 * 1000
+    assert main("1h 1m") == 61 * 60 * 1000
