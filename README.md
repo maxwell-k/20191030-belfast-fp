@@ -4,6 +4,8 @@
 
 Wednesday 30 October 2019
 
+Task explained in <https://github.com/holsee/string_date_parser>
+
 To set up a test environment:
 
 ```sh
