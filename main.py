@@ -15,8 +15,8 @@ def main(_input):
     """
     return sum(
         sum(
-            float(component.rstrip(code)) * DURATIONS[code]
-            for code in DURATIONS
+            float(component.rstrip(code)) * duration
+            for code, duration in DURATIONS.items()
             if component.endswith(code)
         )
         for component in _input.split(" ")
