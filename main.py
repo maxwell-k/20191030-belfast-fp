@@ -9,7 +9,7 @@ def main(_input):
     d day
     m minute
 
-    In addtion:
+    In addition:
 
     h hour
     """
